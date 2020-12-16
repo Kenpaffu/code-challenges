@@ -1,6 +1,6 @@
 "use strict";
 
-// Code Challenge 1 (7kyu)
+//////////// Code Challenge 1 (7kyu)
 const divisors = (integer) => {
   let n = [];
   for (let i = 2; i < integer; i++) {
@@ -13,21 +13,20 @@ const divisors = (integer) => {
 
 // console.log(divisors(32));
 
-// CODE CHALLENGE 2 (8kyu)
-// Tony's Space
+///////////// CODE CHALLENGE 2 (8kyu)
 function litres(time) {
   const li = Math.floor(time * 0.5);
   return li;
 }
 // console.log(litres(6.7));
 
-// Code Challenge Palindrome (8kyu)
+////////////// Code Challenge Palindrome (8kyu)
 const isPalindrome = (x) => {
   return x === Number(String(x).split("").reverse().join(""));
 };
 // console.log(isPalindrome(121));
 
-// Code Challenge 4 (8kyu)
+///////////// Code Challenge 4 (8kyu)
 function sum(numbers) {
   let total = 0;
   for (let i = 0; i < numbers.length; i++) {
@@ -37,6 +36,7 @@ function sum(numbers) {
 }
 // console.log(sum([]));
 
+//////////// Code Challenge 5 (8kyu)
 function warnTheSheep(queue) {
   let wolfPos = 0;
   for (let i = 0; i < queue.length; i++) {
@@ -60,4 +60,13 @@ function warnTheSheep(queue) {
 //     : `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`;
 // }
 
-console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep"]));
+// console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep"]));
+
+//////// Code challenge 6 (8kyu)
+function sakuraFall(v) {
+  const branch = 5 * 80;
+  return v > 0 ? branch / v : 0;
+}
+// console.log(sakuraFall(10));
+
+// console.log(+"1");
