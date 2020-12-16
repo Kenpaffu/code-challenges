@@ -70,3 +70,28 @@ function sakuraFall(v) {
 // console.log(sakuraFall(10));
 
 // console.log(+"1");
+
+///////// Code Challenge 7 (7kyu)
+function hydrate(s) {
+  const str = s.replace(/[^0-9]/g, "");
+  const arr = str.split("");
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += Number(arr[i]);
+  }
+  return sum === 1 ? `${sum} glass of water` : `${sum} glasses of water`;
+}
+
+// console.log(hydrate("2 glasses of wine and 1 shot"));
+
+// function hydrate(s) {
+//   let answer = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     if (parseInt(s[i]) > 0) {
+//       answer += +s[i];
+//     }
+//   }
+//   return answer > 1 ? `${answer} glasses of water`: '1 glass of water'
+// }
+
+// console.log(parseInt("2 glasses of wine and 1 shot"));
