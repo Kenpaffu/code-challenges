@@ -131,15 +131,59 @@ function getVillainName(birthday) {
 //The returned value should be a string in the form of "First Name Last Name"
 
 // Challenge 9 (7kyu)
+// function solve(arr) {
+//   let checkNumber = 0;
+//   let newArr = [];
+//   let tempArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     checkNumber = arr[i];
+//     tempArr = arr.slice(i + 1);
+//     let x = false;
+//     for (let j = 0; j < tempArr.length; j++) {
+//       if (checkNumber <= tempArr[j]) {
+//         x = false;
+//         break;
+//       } else {
+//         x = true;
+//       }
+//     }
+//     if (x) newArr.push(checkNumber);
+//   }
+//   newArr.push(arr[arr.length - 1]);
+//   return newArr;
+// }
+
+// console.log(solve([1, 21, 4, 7, 5]));
+// console.log(solve([5, 4, 3, 2, 1]));
+// console.log(solve([16, 17, 14, 3, 14, 5, 2]));
+// console.log(solve([92, 52, 93, 31, 89, 87, 77, 105]));
+
+// [17,]
+
+// for (let i = 0; i < arr.length; i++) {
+//   for (let j = i + 1; j < arr.length; j++) {
+//     if (arr[i] < arr[j]) {
+//       break;
+//     } else {
+//       newArr.push(arr[i]);
+//     }
+//   }
+//   newArr.push(arr[arr.length - 1]);
+//   return newArr;
+// }
+
 function solve(arr) {
   let newArr = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > arr[i + 1]) {
-      newArr.push(arr[i]);
+    while (arr[i] >= newArr[newArr.length - 1]) {
+      newArr.pop();
     }
+    newArr.push(arr[i]);
   }
-  newArr.push(arr.length);
   return newArr;
 }
 
 console.log(solve([1, 21, 4, 7, 5]));
+console.log(solve([5, 4, 3, 2, 1]));
+console.log(solve([16, 17, 14, 3, 14, 5, 2]));
+console.log(solve([92, 52, 93, 31, 89, 87, 77, 105]));
