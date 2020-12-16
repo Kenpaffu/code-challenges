@@ -95,3 +95,37 @@ function hydrate(s) {
 // }
 
 // console.log(parseInt("2 glasses of wine and 1 shot"));
+
+////////// Code challenge 8 (7kyu)
+function getVillainName(birthday) {
+  const m = [
+    "Evil",
+    "Vile",
+    "Cruel",
+    "Trashy",
+    "Despicable",
+    "Embarrassing",
+    "Disreputable",
+    "Atrocious",
+    "Twirling",
+    "Orange",
+    "Terrifying",
+    "Awkward",
+  ];
+  const d = [
+    "Mustache",
+    "Pickle",
+    "Hood Ornament",
+    "Raisin",
+    "Recycling Bin",
+    "Potato",
+    "Tomato",
+    "House Cat",
+    "Teaspoon",
+    "Laundry Basket",
+  ];
+  return `The ${m[birthday.getMonth()]} ${d[birthday.getDate() % 10]}`;
+}
+
+console.log(getVillainName(new Date("March 22")));
+//The returned value should be a string in the form of "First Name Last Name"
