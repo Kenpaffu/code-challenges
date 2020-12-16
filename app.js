@@ -127,5 +127,19 @@ function getVillainName(birthday) {
   return `The ${m[birthday.getMonth()]} ${d[birthday.getDate() % 10]}`;
 }
 
-console.log(getVillainName(new Date("March 22")));
+// console.log(getVillainName(new Date("March 22")));
 //The returned value should be a string in the form of "First Name Last Name"
+
+// Challenge 9 (7kyu)
+function solve(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > arr[i + 1]) {
+      newArr.push(arr[i]);
+    }
+  }
+  newArr.push(arr.length);
+  return newArr;
+}
+
+console.log(solve([1, 21, 4, 7, 5]));
