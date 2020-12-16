@@ -11,7 +11,7 @@ const divisors = (integer) => {
   } else return n;
 };
 
-console.log(divisors(32));
+// console.log(divisors(32));
 
 // CODE CHALLENGE 2 (8kyu)
 // Tony's Space
@@ -19,13 +19,13 @@ function litres(time) {
   const li = Math.floor(time * 0.5);
   return li;
 }
-console.log(litres(6.7));
+// console.log(litres(6.7));
 
 // Code Challenge Palindrome (8kyu)
 const isPalindrome = (x) => {
   return x === Number(String(x).split("").reverse().join(""));
 };
-console.log(isPalindrome(121));
+// console.log(isPalindrome(121));
 
 // Code Challenge 4 (8kyu)
 function sum(numbers) {
@@ -35,4 +35,29 @@ function sum(numbers) {
   }
   return total;
 }
-console.log(sum([]));
+// console.log(sum([]));
+
+function warnTheSheep(queue) {
+  let wolfPos = 0;
+  for (let i = 0; i < queue.length; i++) {
+    if (queue[i] === "wolf") {
+      wolfPos = i;
+    }
+  }
+  const sheepInDanger = queue.length - 1 - wolfPos;
+  if (wolfPos !== queue.length - 1) {
+    return `Oi! Sheep number ${sheepInDanger}! You are about to be eaten by a wolf!`;
+  } else {
+    return "Pls go away and stop eating my sheep";
+  }
+}
+
+// function warnTheSheep(queue) {
+//   const position = queue.reverse().indexOf("wolf");
+//   console.log(position);
+//   return position === 0
+//     ? "Pls go away and stop eating my sheep"
+//     : `Oi! Sheep number ${position}! You are about to be eaten by a wolf!`;
+// }
+
+console.log(warnTheSheep(["sheep", "sheep", "wolf", "sheep"]));
