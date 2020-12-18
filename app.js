@@ -130,7 +130,7 @@ function getVillainName(birthday) {
 // console.log(getVillainName(new Date("March 22")));
 //The returned value should be a string in the form of "First Name Last Name"
 
-// Challenge 9 (7kyu)
+//////////////////// Challenge 9 (7kyu)
 // function solve(arr) {
 //   let checkNumber = 0;
 //   let newArr = [];
@@ -172,18 +172,50 @@ function getVillainName(birthday) {
 //   return newArr;
 // }
 
-function solve(arr) {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    while (arr[i] >= newArr[newArr.length - 1]) {
-      newArr.pop();
-    }
-    newArr.push(arr[i]);
+// const solve = (arr) => {
+//   arr = arr.reverse();
+//   return arr.reduce(
+//     (result, e, index) => {
+//       result =
+//         arr[index] > result[0] && result.indexOf(arr[index]) < 0
+//           ? [arr[index], ...result]
+//           : result;
+//       return result;
+//     },
+//     [arr[0]]
+//   );
+// };
+
+// function solve(arr) {
+//   let newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     while (arr[i] >= newArr[newArr.length - 1]) {
+//       newArr.pop();
+//     }
+//     newArr.push(arr[i]);
+//   }
+//   return newArr;
+// }
+
+// console.log(solve([1, 21, 4, 7, 5]));
+// console.log(solve([5, 4, 3, 2, 1]));
+// console.log(solve([16, 17, 14, 3, 14, 5, 2]));
+// console.log(solve([92, 52, 93, 31, 89, 87, 77, 105]));
+
+// Challenge 10 (7kyu)
+function replaceAll(seq, find, replace) {
+  if (typeof seq === "string") seq = seq.split("");
+  for (let i = 0; i < seq.length; i++) {
+    if (seq.indexOf(find) !== -1) seq.splice(seq.indexOf(find), 1, replace);
   }
-  return newArr;
+  if (typeof seq[0] === "string") seq = seq.join("");
+  return seq;
 }
 
-console.log(solve([1, 21, 4, 7, 5]));
-console.log(solve([5, 4, 3, 2, 1]));
-console.log(solve([16, 17, 14, 3, 14, 5, 2]));
-console.log(solve([92, 52, 93, 31, 89, 87, 77, 105]));
+replaceAll([1, 1, 4, 1, 2, 2, 3], 1, 2);
+replaceAll("tonnerq", "n", "t");
+replaceAll("tonnerq", "n", "t");
+
+// function replaceAll(seq, find, replace) {
+//   return Array.isArray(seq) ? seq.map(x=>x==find?replace:x) : seq.split(find).join(replace)
+// }
