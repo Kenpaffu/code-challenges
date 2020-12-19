@@ -229,4 +229,22 @@ function sumEvenNumbers(input) {
   return sum;
 }
 
-console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// sumEvenNumbers = input => input.filter(x => x % 2 == 0).reduce((x, y) => x + y, 0)
+
+// console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+
+////// Challenge 12 (7kyu)
+
+function maxMultiple(divisor, bound) {
+  let tempArr = [];
+  for (let i = divisor; i <= bound; i++) tempArr.push(i);
+  return Math.max(...tempArr.filter((num) => num % divisor === 0));
+}
+
+// function maxMultiple(divisor, bound) {
+//   return bound - (bound % divisor);
+// }
+
+// const maxMultiple = (divisor, bound) => bound - (bound % divisor);
+
+// console.log(maxMultiple(2, 49));
