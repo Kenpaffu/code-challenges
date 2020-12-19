@@ -219,3 +219,14 @@ replaceAll("tonnerq", "n", "t");
 // function replaceAll(seq, find, replace) {
 //   return Array.isArray(seq) ? seq.map(x=>x==find?replace:x) : seq.split(find).join(replace)
 // }
+
+// Challenge 11 (7kyu)
+function sumEvenNumbers(input) {
+  let sum = 0;
+  for (const i of input) {
+    if (i % 2 === 0) sum += i;
+  }
+  return sum;
+}
+
+console.log(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
