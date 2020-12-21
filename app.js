@@ -248,3 +248,18 @@ function maxMultiple(divisor, bound) {
 // const maxMultiple = (divisor, bound) => bound - (bound % divisor);
 
 // console.log(maxMultiple(2, 49));
+
+/////// Challenge 13 (7kyu)
+
+function isTriangular(t) {
+  return ((Math.sqrt(8 * t + 1) - 1) / 2) % 1 === 0;
+}
+
+console.log(isTriangular(1));
+console.log(isTriangular(3));
+console.log(isTriangular(6));
+console.log(isTriangular(2));
+console.log(isTriangular(7));
+
+// console.log((Math.sqrt(8 * t + 1) - 1) / 2);
+// console.log((3 * (3 + 1)) / 2);
