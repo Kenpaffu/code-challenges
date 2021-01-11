@@ -15,8 +15,7 @@ const divisors = (integer) => {
 
 ///////////// CODE CHALLENGE 2 (8kyu)
 function litres(time) {
-  const li = Math.floor(time * 0.5);
-  return li;
+  return Math.floor(time * 0.5);
 }
 // console.log(litres(6.7));
 
@@ -255,11 +254,22 @@ function isTriangular(t) {
   return ((Math.sqrt(8 * t + 1) - 1) / 2) % 1 === 0;
 }
 
-console.log(isTriangular(1));
-console.log(isTriangular(3));
-console.log(isTriangular(6));
-console.log(isTriangular(2));
-console.log(isTriangular(7));
-
 // console.log((Math.sqrt(8 * t + 1) - 1) / 2);
 // console.log((3 * (3 + 1)) / 2);
+
+/////// Challenge 14 (6kyu)
+const a1 = ["xyz", "live", "strong"];
+const a2 = ["lively", "alive", "harp", "sharp", "armstrong"];
+
+function inArray(arr1, arr2) {
+  let newArr = [];
+  arr2.map((el) => {
+    arr1.map((x) => {
+      el.includes(x) ? newArr.push(x) : null;
+    });
+  });
+  const set = new Set(newArr.sort());
+  console.log(Array.from(set));
+}
+
+inArray(a1, a2);
