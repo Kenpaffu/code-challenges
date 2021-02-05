@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 //////////// Code Challenge 1 (7kyu)
 const divisors = (integer) => {
@@ -21,7 +21,7 @@ function litres(time) {
 
 ////////////// Code Challenge Palindrome (8kyu)
 const isPalindrome = (x) => {
-  return x === Number(String(x).split("").reverse().join(""));
+  return x === Number(String(x).split('').reverse().join(''));
 };
 // console.log(isPalindrome(121));
 
@@ -39,7 +39,7 @@ function sum(numbers) {
 function warnTheSheep(queue) {
   let wolfPos = 0;
   for (let i = 0; i < queue.length; i++) {
-    if (queue[i] === "wolf") {
+    if (queue[i] === 'wolf') {
       wolfPos = i;
     }
   }
@@ -47,7 +47,7 @@ function warnTheSheep(queue) {
   if (wolfPos !== queue.length - 1) {
     return `Oi! Sheep number ${sheepInDanger}! You are about to be eaten by a wolf!`;
   } else {
-    return "Pls go away and stop eating my sheep";
+    return 'Pls go away and stop eating my sheep';
   }
 }
 
@@ -72,8 +72,8 @@ function sakuraFall(v) {
 
 ///////// Code Challenge 7 (7kyu)
 function hydrate(s) {
-  const str = s.replace(/[^0-9]/g, "");
-  const arr = str.split("");
+  const str = s.replace(/[^0-9]/g, '');
+  const arr = str.split('');
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     sum += Number(arr[i]);
@@ -98,30 +98,30 @@ function hydrate(s) {
 ////////// Code challenge 8 (7kyu)
 function getVillainName(birthday) {
   const m = [
-    "Evil",
-    "Vile",
-    "Cruel",
-    "Trashy",
-    "Despicable",
-    "Embarrassing",
-    "Disreputable",
-    "Atrocious",
-    "Twirling",
-    "Orange",
-    "Terrifying",
-    "Awkward",
+    'Evil',
+    'Vile',
+    'Cruel',
+    'Trashy',
+    'Despicable',
+    'Embarrassing',
+    'Disreputable',
+    'Atrocious',
+    'Twirling',
+    'Orange',
+    'Terrifying',
+    'Awkward',
   ];
   const d = [
-    "Mustache",
-    "Pickle",
-    "Hood Ornament",
-    "Raisin",
-    "Recycling Bin",
-    "Potato",
-    "Tomato",
-    "House Cat",
-    "Teaspoon",
-    "Laundry Basket",
+    'Mustache',
+    'Pickle',
+    'Hood Ornament',
+    'Raisin',
+    'Recycling Bin',
+    'Potato',
+    'Tomato',
+    'House Cat',
+    'Teaspoon',
+    'Laundry Basket',
   ];
   return `The ${m[birthday.getMonth()]} ${d[birthday.getDate() % 10]}`;
 }
@@ -203,17 +203,17 @@ function getVillainName(birthday) {
 
 // Challenge 10 (7kyu)
 function replaceAll(seq, find, replace) {
-  if (typeof seq === "string") seq = seq.split("");
+  if (typeof seq === 'string') seq = seq.split('');
   for (let i = 0; i < seq.length; i++) {
     if (seq.indexOf(find) !== -1) seq.splice(seq.indexOf(find), 1, replace);
   }
-  if (typeof seq[0] === "string") seq = seq.join("");
+  if (typeof seq[0] === 'string') seq = seq.join('');
   return seq;
 }
 
 replaceAll([1, 1, 4, 1, 2, 2, 3], 1, 2);
-replaceAll("tonnerq", "n", "t");
-replaceAll("tonnerq", "n", "t");
+replaceAll('tonnerq', 'n', 't');
+replaceAll('tonnerq', 'n', 't');
 
 // function replaceAll(seq, find, replace) {
 //   return Array.isArray(seq) ? seq.map(x=>x==find?replace:x) : seq.split(find).join(replace)
@@ -258,8 +258,8 @@ function isTriangular(t) {
 // console.log((3 * (3 + 1)) / 2);
 
 /////// Challenge 14 (6kyu)
-const a1 = ["xyz", "live", "strong"];
-const a2 = ["lively", "alive", "harp", "sharp", "armstrong"];
+const a1 = ['xyz', 'live', 'strong'];
+const a2 = ['lively', 'alive', 'harp', 'sharp', 'armstrong'];
 
 function inArray(arr1, arr2) {
   let newArr = [];
@@ -272,4 +272,69 @@ function inArray(arr1, arr2) {
   console.log(Array.from(set));
 }
 
-inArray(a1, a2);
+// inArray();
+
+/*
+const inArray = (array1,array2) =>
+  array1.filter(item => 
+    array2.some(item2 => item2.includes(item)))
+    .sort()
+*/
+
+/////// Challenge 14 (5kyu)
+
+function humanReadable(seconds) {
+  let newHrs;
+  let newMins;
+  let newSecs;
+  newHrs = Math.floor(seconds / 3600);
+  newMins = Math.floor((seconds - newHrs * 3600) / 60);
+  newSecs = seconds - newHrs * 3600 - newMins * 60;
+
+  return `${String(newHrs).padStart(2, '0')}:${String(newMins).padStart(
+    2,
+    '0'
+  )}:${String(newSecs).padStart(2, '0')}`;
+}
+
+// humanReadable(32151);
+
+/////// Challenge 15 (5kyu)
+
+function rot13(message) {
+  // prettier-ignore
+  const alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+  let msgArr = [];
+  let cypherIndex = [];
+  let capitalLetters = [];
+
+  msgArr = message.split('').map((el) => el.toLowerCase());
+  cypherIndex = msgArr.map((el) => {
+    if (alphabet.indexOf(el) + 13 > alphabet.length) {
+      return alphabet[13 - (alphabet.length - alphabet.indexOf(el))];
+    } else if (el !== /[a-z]/) {
+      return el;
+    } else {
+      return alphabet[alphabet.indexOf(el) + 13];
+    }
+  });
+
+  capitalLetters = message.split('').map((el, i) => {
+    if (el === el.toUpperCase()) {
+      return i;
+    }
+  });
+  capitalLetters = capitalLetters.filter((el) => el !== undefined);
+
+  for (let i = 0; i < capitalLetters.length; i++) {
+    cypherIndex[capitalLetters[i]] = cypherIndex[
+      capitalLetters[i]
+    ].toUpperCase();
+  }
+
+  console.log(cypherIndex);
+  console.log(cypherIndex.join(''));
+}
+
+rot13('Ruby is cool!');
