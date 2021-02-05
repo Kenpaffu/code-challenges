@@ -308,12 +308,13 @@ function rot13(message) {
   let msgArr = [];
   let cypherIndex = [];
   let capitalLetters = [];
+  let checkAlphabet = /[a-z]/g;
 
   msgArr = message.split('').map((el) => el.toLowerCase());
   cypherIndex = msgArr.map((el) => {
-    if (alphabet.indexOf(el) + 13 > alphabet.length) {
+    if (alphabet.indexOf(el) + 13 >= alphabet.length) {
       return alphabet[13 - (alphabet.length - alphabet.indexOf(el))];
-    } else if (el !== /[a-z]/) {
+    } else if (!el.match(checkAlphabet)) {
       return el;
     } else {
       return alphabet[alphabet.indexOf(el) + 13];
@@ -333,8 +334,7 @@ function rot13(message) {
     ].toUpperCase();
   }
 
-  console.log(cypherIndex);
-  console.log(cypherIndex.join(''));
+  return cypherIndex.join('');
 }
 
 rot13('Ruby is cool!');
